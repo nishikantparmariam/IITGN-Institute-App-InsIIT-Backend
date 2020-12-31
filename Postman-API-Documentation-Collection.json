@@ -1,0 +1,475 @@
+{
+	"info": {
+		"_postman_id": "7f0dcd3e-d1ad-4dd4-960b-b648b5a1c3a6",
+		"name": "Instiapp-Backend Local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET ALL FEED",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/getFeeds?api_key=your_api_key&start_from=0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"getFeeds"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "your_api_key"
+						},
+						{
+							"key": "start_from",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST FEED",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{    \r\n    \"content\":\"Feed 6\",\r\n    \"timestamp\":\"11-05-2020 14:24\",\r\n    \"image_urls\":[\"https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png\",\r\n    \t\t\t\"https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png\"],\r\n    \"comments\":[],\r\n    \"type\":\"Information\",\r\n    \"hashtags\":[\"india\",\"coding\"],\r\n    \"reactions\":{\r\n        \"like\":0,\r\n        \"insightful\":0,\r\n        \"celebrate\":0,\r\n        \"haha\":100                             \r\n    },\r\n    \"comments_on\":true,\r\n    \"reacted_by\":[]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/postFeed?api_key=your_api_key&user_id=1aSsRDsu3qfwVliZRgzy71X3y2f2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"postFeed"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "your_api_key"
+						},
+						{
+							"key": "user_id",
+							"value": "1aSsRDsu3qfwVliZRgzy71X3y2f2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST COMMENT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{    \r\n    \"content\":\"Comment 1 on Feed 6\",\r\n    \"timestamp\":\"11-05-2020 14:24\",    \r\n    \"reactions\":{\r\n        \"like\":0,\r\n        \"insightful\":0,\r\n        \"celebrate\":0,\r\n        \"haha\":0                          \r\n    },\r\n    \"reacted_by\":[]    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/postComment?api_key=your_api_key&feed_id=5fde437be27f5b56acca6b70&user_id=1aSsRDsu3qfwVliZRgzy71X3y2f2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"postComment"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "your_api_key"
+						},
+						{
+							"key": "feed_id",
+							"value": "5fde437be27f5b56acca6b70"
+						},
+						{
+							"key": "user_id",
+							"value": "1aSsRDsu3qfwVliZRgzy71X3y2f2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FEED REACTION UPDATE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"where\":\"insightful\",\n\t\"change\":100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/feedReactionUpdate?api_key=your_api_key&feed_id=8eba38eeebfeec8fc8db6369&user_id=1aSsRDsu3qfwVliZRgzy71X3y2f2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"feedReactionUpdate"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "your_api_key"
+						},
+						{
+							"key": "feed_id",
+							"value": "8eba38eeebfeec8fc8db6369"
+						},
+						{
+							"key": "user_id",
+							"value": "1aSsRDsu3qfwVliZRgzy71X3y2f2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "COMMENT REACTION UPDATE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"where\":\"haha\",\n\t\"change\":-1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/commentReactionUpdate?api_key=your_api_key&feed_id=8eba38eeebfeec8fc8db6369&comment_index=1&user_id=1aSsRDsu3qfwVliZRgzy71X3y2f2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"commentReactionUpdate"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "your_api_key"
+						},
+						{
+							"key": "feed_id",
+							"value": "8eba38eeebfeec8fc8db6369"
+						},
+						{
+							"key": "comment_index",
+							"value": "1"
+						},
+						{
+							"key": "user_id",
+							"value": "1aSsRDsu3qfwVliZRgzy71X3y2f2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HOME",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD NEW HASH TAG",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"hash_tag_name\":\"general\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/addNewHashTag?api_key=your_api_key",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addNewHashTag"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "your_api_key"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL HASHTAGS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/getAllHashTags?api_key=your_api_key&user_id=1aSsRDsu3qfwVliZRgzy71X3y2f2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"getAllHashTags"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "your_api_key"
+						},
+						{
+							"key": "user_id",
+							"value": "1aSsRDsu3qfwVliZRgzy71X3y2f2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS RESPONSE",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/getAllHashTags?api_key=your_api_key",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"getAllHashTags"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "your_api_key"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "140"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8c-wxS3hHh6o6T2pQCHulDIDOdQ5C8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 23 Dec 2020 09:35:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Query was successful\",\n    \"results\": [\n        \"coding\",\n        \"2020wasbad\",\n        \"iamnew\",\n        \"iitgn\",\n        \"india\",\n        \"msc\",\n        \"btech\",\n        \"mtech\",\n        \"general\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "ADD USER FOR HASHTAG",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"hash_tag_id\":\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/addUserForHashTag?api_key=your_api_key&user_id=user1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addUserForHashTag"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "your_api_key"
+						},
+						{
+							"key": "user_id",
+							"value": "user1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REMOVE USER FROM HASHTAG",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"hash_tag_id\":\"5fe30e24373c71496466ab79\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/removeUserForHashTag?api_key=your_api_key&user_id=1aSsRDsu3qfwVliZRgzy71X3y2f2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"removeUserForHashTag"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "your_api_key"
+						},
+						{
+							"key": "user_id",
+							"value": "1aSsRDsu3qfwVliZRgzy71X3y2f2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET FEED WITH HASHTAG",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"hash_tags\":[\"niks\", \"parmar\", \"iam\",\"corona\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/getFeedWithHashTag?api_key=your_api_key&start_from=5",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"getFeedWithHashTag"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "your_api_key"
+						},
+						{
+							"key": "start_from",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET FEED FOR USER",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/getFeedForUser?api_key=your_api_key&user_id=1aSsRDsu3qfwVliZRgzy71X3y2f2&start_from=1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"getFeedForUser"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": "your_api_key"
+						},
+						{
+							"key": "user_id",
+							"value": "1aSsRDsu3qfwVliZRgzy71X3y2f2"
+						},
+						{
+							"key": "start_from",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
